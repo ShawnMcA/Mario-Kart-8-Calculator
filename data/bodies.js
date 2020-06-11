@@ -1,6 +1,7 @@
 export const bodies = [
   {
-    "name": "Standard Kart"
+    "name": "Standard Kart",
+    "image": ''
   },
   {
     "name": "Pipe Frame",
