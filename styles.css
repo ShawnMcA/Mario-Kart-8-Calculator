@@ -1,3 +1,4 @@
+/* ----- Globals ----- */
 * {
   padding: 0;
   margin: 0;
@@ -15,6 +16,7 @@ body {
   font-family: sans-serif;
 }
 
+/* ----- Main App ----- */
 #main {
   display: flex;
   flex-direction: column;
@@ -62,6 +64,8 @@ body {
   display: inline;
 }
 
+
+/* ----- App Rows ----- */
 .row-modal {
   display: flex;
   align-items: center;
@@ -73,4 +77,15 @@ body {
   background-color: #fff;
   margin: 0 20px;
   border: solid 5px #444;
+}
+
+.modal-left,
+.modal-right {
+  cursor: pointer;
+}
+
+#char-image {
+  background-image: url('/media/MarioIcon.png');
+  background-repeat: no-repeat;
+  background-size: contain;
 }
