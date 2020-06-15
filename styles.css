@@ -73,11 +73,13 @@ body {
 
 .modal-image {
   height: 70px;
-  width: 70px;
+  width: 110px;
   background-color: #fff;
+  background-position: center;
   margin: 0 20px;
   border: solid 5px #444;
 }
+
 
 .modal-left,
 .modal-right {
@@ -85,7 +87,25 @@ body {
 }
 
 #char-image {
-  background-image: url('/media/MarioIcon.png');
+  background-image: url('/media/drivers/MiiHeavyIcon.png');
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+#body-image {
+  background-image: url('/media/bodies/StandardKartIcon.png');
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+#wheels-image {
+  background-image: url('/media/tires/StandardIcon.png');
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+#glider-image {
+  background-image: url('/media/gliders/SuperGliderIcon.png');
   background-repeat: no-repeat;
   background-size: contain;
 }
