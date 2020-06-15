@@ -30,6 +30,8 @@ const changeCharRight = () => {
   newChar = getNextChar(currChar);
   currentTable.character = newChar.image;
 
+  console.log(newChar);
+
   updateCharImage(currentTable.character);
   updateChart();
 }
@@ -42,6 +44,8 @@ const changeCharLeft = () => {
   currChar = getCurrentChar();
   newChar = getPrevChar(currChar);
   currentTable.character = newChar.image;
+
+  console.log(newChar);
 
   updateCharImage(currentTable.character);
   updateChart();
@@ -88,6 +92,8 @@ const changeBodyRight = () => {
   newBody = getNextBody(currBody);
   currentTable.body = newBody.image;
 
+  console.log(newBody);
+
   updateBodyImage(currentTable.body);
   updateChart();
 }
@@ -100,6 +106,8 @@ const changeBodyLeft = () => {
   currBody = getCurrentBody();
   newBody = getPrevBody(currBody);
   currentTable.body = newBody.image;
+
+  console.log(newBody);
 
   updateBodyImage(currentTable.body);
   updateChart();
