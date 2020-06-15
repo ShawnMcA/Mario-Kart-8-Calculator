@@ -3,6 +3,8 @@ import { bodies } from './data/bodies.js';
 import { gliders } from './data/gliders.js';
 import { tires } from './data/tires.js';
 
+// ========== Main App  ==========//
+
 // Arrays of drivers, bodies, gliders, and tires
 const driverList = drivers.map(driver => driver.name);
 const bodyList = bodies.map(body => body.name);
@@ -17,6 +19,8 @@ const currentTable = {
   glider: 'Super Glider'
 }
 
+// ========== Drivers ==========// 
+
 // Next character
 const changeCharRight = () => {
   let currChar = {};
@@ -28,7 +32,19 @@ const changeCharRight = () => {
 
   updateCharImage(currentTable.character);
   updateChart();
-  
+}
+
+// Prev character
+const changeCharLeft = () => {
+  let currChar = {};
+  let newChar = {};
+
+  currChar = getCurrentChar();
+  newChar = getPrevChar(currChar);
+  currentTable.character = newChar.image;
+
+  updateCharImage(currentTable.character);
+  updateChart();
 }
 
 // Get the current character
@@ -61,28 +77,11 @@ const updateCharImage = currCharUrl => {
   document.getElementById('char-image').style.backgroundImage = `url(${currCharUrl})`;
 }
 
-// Update stats chart
-const updateChart = () => {
-
-}
  
-// Prev character
-const changeCharLeft = () => {
-  let currChar = {};
-  let newChar = {};
 
-  currChar = getCurrentChar();
-  newChar = getPrevChar(currChar);
-  currentTable.character = newChar.image;
+// ========== Kart Bodies ==========// 
 
-  updateCharImage(currentTable.character);
-  updateChart();
-
-}
-
-//
-// Next Kart Body
-//
+// Next kart body
 const changeBodyRight = () => {
   let currBody = {};
   let newBody = {};
@@ -93,7 +92,19 @@ const changeBodyRight = () => {
 
   updateBodyImage(currentTable.body);
   updateChart();
-  
+}
+
+// Prev kart body
+const changeBodyLeft = () => {
+  let currBody = {};
+  let newBody = {};
+
+  currBody = getCurrentBody();
+  newBody = getPrevBody(currBody);
+  currentTable.body = newBody.image;
+
+  updateBodyImage(currentTable.body);
+  updateChart();
 }
 
 // Get the current kart body
@@ -126,42 +137,27 @@ const updateBodyImage = currBodyUrl => {
   document.getElementById('body-image').style.backgroundImage = `url(${currBodyUrl})`;
 }
  
-// Prev kart body
-const changeBodyLeft = () => {
-  let currBody = {};
-  let newBody = {};
 
-  currBody = getCurrentBody();
-  newBody = getPrevBody(currBody);
-  currentTable.body = newBody.image;
+// ========== Kart Tires ==========// 
 
-  updateBodyImage(currentTable.body);
-  updateChart();
+
+
+
+// ========== Gliders Tires ==========//
+
+
+
+// ========== Stats ==========//
+
+// Update stats
+const updateChart = () => {
 
 }
 
 
-// add tires functions
 
 
-
-
-// add gliders functions
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// Event Listeners
+// ========== Event Listeners ==========//
 document.getElementById('char-right').addEventListener('click', changeCharRight);
 document.getElementById('char-left').addEventListener('click', changeCharLeft);
 document.getElementById('body-right').addEventListener('click', changeBodyRight);
