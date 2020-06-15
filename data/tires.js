@@ -265,7 +265,7 @@ export const tires = [
     "waterSpeed": 0,
     "antiGravitySpeed": 4,
     "airSpeed": 0,
-    "groundHandling": 2
+    "groundHandling": 2,
     "waterHandling": 0,
     "antiGravityHandling": 2,
     "airHandling": 1,
