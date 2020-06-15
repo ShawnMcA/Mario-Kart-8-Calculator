@@ -14,7 +14,7 @@ export const bodies = [
     "waterHandling": 2,
     "antiGravityHandling": 3,
     "airHandling": 3,
-    "image": '/media/bodies/bodies/StandardKartIcon.png'
+    "image": '/media/bodies/StandardKartIcon.png'
   },
   {
     "name": "Pipe Frame",
