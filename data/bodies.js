@@ -44,7 +44,7 @@ export const bodies = [
     "waterSpeed": 3,
     "antiGravitySpeed": 5,
     "airSpeed": 4,
-    "groundHandling": 222,
+    "groundHandling": 2,
     "waterHandling": 2,
     "antiGravityHandling": 4,
     "airHandling": 2,
