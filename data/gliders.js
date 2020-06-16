@@ -82,7 +82,7 @@ export const gliders = [
     "waterHandling": 1,
     "antiGravityHandling": 0,
     "airHandling": 2,
-    "image": '/media/gliders/PeachParosolIcon.png'
+    "image": '/media/gliders/PeachParasolIcon.png'
   },
   {  
     "name":"Parachute",
