@@ -3,13 +3,12 @@ import { bodies } from './data/bodies.js';
 import { gliders } from './data/gliders.js';
 import { tires } from './data/tires.js';
 
+import { chart } from '/stats.js';
+
 // ========== Main App  ==========//
 
-// Arrays of drivers, bodies, gliders, and tires
-const driverList = drivers.map(driver => driver.name);
-const bodyList = bodies.map(body => body.name);
-const gliderList = gliders.map(glider => glider.name);
-const tireList = tires.map(tire => tire.name);
+export let finalStats = [];
+
 
 // ========== Drivers ==========// 
 
@@ -255,7 +254,7 @@ const updateGliderImage = currGliderUrl => {
 // ========== Stats ==========//
 
 // Update stats
-const updateStats = () => {
+export const updateStats = () => {
   let driverStats = getCurrentChar();
   let bodyStats = getCurrentBody();
   let tiresStats = getCurrentTires();
@@ -279,7 +278,7 @@ const updateStats = () => {
   13. miniTurbo 
 */
 
-  let finalStats = [
+  finalStats = [
     calculateStats([driverStats.groundSpeed, bodyStats.groundSpeed, tiresStats.groundSpeed, gliderStats.groundSpeed]),
     calculateStats([driverStats.airSpeed, bodyStats.airSpeed, tiresStats.airSpeed, gliderStats.airSpeed]),
     calculateStats([driverStats.waterSpeed, bodyStats.waterSpeed, tiresStats.waterSpeed, gliderStats.waterSpeed]),
@@ -296,11 +295,15 @@ const updateStats = () => {
   ];
 
   console.log(`Final Stats: ${finalStats}`);
-}
+
+  chart.updateSeries([{ data: finalStats }]);
+};
 
 const calculateStats = stats => {
   return (stats.reduce((acc, curr) => acc + curr) + 3) / 4;
 }
+
+
 
 // ========== Event Listeners ==========//
 document.getElementById('char-right').addEventListener('click', changeCharRight);
@@ -314,3 +317,7 @@ document.getElementById('tires-left').addEventListener('click', changeTiresLeft)
 
 document.getElementById('glider-right').addEventListener('click', changeGliderRight);
 document.getElementById('glider-left').addEventListener('click', changeGliderLeft);
+
+window.onload = function() {
+  updateStats();
+}

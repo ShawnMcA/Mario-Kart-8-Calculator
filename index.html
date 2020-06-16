@@ -50,39 +50,9 @@
         <i class="fas fa-chevron-right fa-3x modal-right" id="glider-right"></i>
       </div>
     </div>
-    <div class="app-row-large stats-row" id="chart"></div>
-
-  
-  <script>
-    
-      var options = {
-        series: [{
-        data: [1, 2, 4, 2, 5, 2.5, 3, 2.25, 3, 6, 1, 2, 4]
-      }],
-        chart: {
-        type: 'bar',
-        height: 350
-      },
-      plotOptions: {
-        bar: {
-          horizontal: true,
-        }
-      },
-      dataLabels: {
-        enabled: true
-      },
-      xaxis: {
-        categories: ['Ground Speed', 'Air Speed', 'Water Speed', 'Anti-Gravity Speed', 'Acceleration', 'Weight', 'Ground Handling', 'Air Handling', 'Water Handling', 'Anti-Gravity Handling', 'On-Road Traction', 'Off-Road Traction', 'Mini Turbo'
-        ],
-      }
-      };
-
-      var chart = new ApexCharts(document.querySelector("#chart"), options);
-      chart.render();
-    
-  </script>
-
+    <div class="app-row-large stats-row" id="stat-chart"></div>
   </section>
   <script type="module" src="main.js"></script>
+  <script type="module" src="stats.js"></script>
 </body>
 </html>
