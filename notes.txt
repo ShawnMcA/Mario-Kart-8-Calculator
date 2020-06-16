@@ -2,3 +2,25 @@ Stats:
 Char/Body/Wheels/Glider have points 0-10 
 
 The total shown in game is: (total points + 3) / 4    ex. (6 + 3) / 4 = 2.25 bars out of 6
+
+
+In-game stats:
+
+groundSpeed
+airSpeed
+waterSpeed
+antiGravitySpeed
+
+acceleration
+
+weight
+
+groundHandling
+airHandling
+waterHandling
+antiGravityHandling
+
+onRoadTraction
+offRoadTraction
+
+miniTurbo

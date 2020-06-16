@@ -11,14 +11,6 @@ const bodyList = bodies.map(body => body.name);
 const gliderList = gliders.map(glider => glider.name);
 const tireList = tires.map(tire => tire.name);
 
-// Current table 
-const currentTable = {
-  character: 'MarioIcon.png',
-  body: 'StandardKartIcon.png',
-  tires: 'StandardIcon.png',
-  glider: 'SuperGliderIcon.png'
-}
-
 // ========== Drivers ==========// 
 
 // Displays next kart driver
@@ -28,12 +20,11 @@ const changeCharRight = () => {
 
   currChar = getCurrentChar();
   newChar = getNextChar(currChar);
-  currentTable.character = newChar.image;
 
   console.log(newChar);
 
-  updateCharImage(currentTable.character);
-  updateChart();
+  updateCharImage(newChar.image);
+  updateStats();
 }
 
 // Displays previous kart driver
@@ -43,12 +34,11 @@ const changeCharLeft = () => {
 
   currChar = getCurrentChar();
   newChar = getPrevChar(currChar);
-  currentTable.character = newChar.image;
 
   console.log(newChar);
 
-  updateCharImage(currentTable.character);
-  updateChart();
+  updateCharImage(newChar.image);
+  updateStats();
 }
 
 // Get the current character
@@ -90,12 +80,11 @@ const changeBodyRight = () => {
 
   currBody = getCurrentBody();
   newBody = getNextBody(currBody);
-  currentTable.body = newBody.image;
 
   console.log(newBody);
 
-  updateBodyImage(currentTable.body);
-  updateChart();
+  updateBodyImage(newBody.image);
+  updateStats();
 }
 
 // Displays previous kart body
@@ -105,12 +94,11 @@ const changeBodyLeft = () => {
 
   currBody = getCurrentBody();
   newBody = getPrevBody(currBody);
-  currentTable.body = newBody.image;
 
   console.log(newBody);
 
-  updateBodyImage(currentTable.body);
-  updateChart();
+  updateBodyImage(newBody.image);
+  updateStats();
 }
 
 // Get the current kart body
@@ -146,129 +134,172 @@ const updateBodyImage = currBodyUrl => {
 
 // ========== Kart Tires ==========// 
 
-// Displays next kart body
-/*
-const changeBodyRight = () => {
-  let currBody = {};
-  let newBody = {};
+// Displays next kart tires
+const changeTiresRight = () => {
+  let currTires = {};
+  let newTires = {};
 
-  currBody = getCurrentBody();
-  newBody = getNextBody(currBody);
-  currentTable.body = newBody.image;
+  currTires = getCurrentTires();
+  newTires = getNextTires(currTires);
 
-  updateBodyImage(currentTable.body);
-  updateChart();
+  console.log(newTires);
+
+  updateTiresImage(newTires.image);
+  updateStats();
 }
 
-// Displays previous kart body
-const changeBodyLeft = () => {
-  let currBody = {};
-  let newBody = {};
+// Displays previous kart tires
+const changeTiresLeft = () => {
+  let currTires = {};
+  let newTires = {};
 
-  currBody = getCurrentBody();
-  newBody = getPrevBody(currBody);
-  currentTable.body = newBody.image;
+  currTires = getCurrentTires();
+  newTires = getPrevTires(currTires);
 
-  updateBodyImage(currentTable.body);
-  updateChart();
+  console.log(newTires);
+
+  updateTiresImage(newTires.image);
+  updateStats();
 }
 
-// Get the current kart body
-const getCurrentBody = () => {
-  const bodyImage = document.getElementById('body-image');
-  let imgUrl = window.getComputedStyle(bodyImage).getPropertyValue('background-image');
+// Get the current kart tires
+const getCurrentTires = () => {
+  const tiresImage = document.getElementById('tires-image');
+  let imgUrl = window.getComputedStyle(tiresImage).getPropertyValue('background-image');
   let currImage = imgUrl.split('/');
   let currIcon = currImage[currImage.length - 1].substring(0, currImage[currImage.length - 1].length - 2);
-  let currentBody = bodies.filter(body => body.image === `/media/bodies/${currIcon}`);
+  let currentTires = tires.filter(tire => tire.image === `/media/tires/${currIcon}`);
 
-  return currentBody[0];
+  return currentTires[0];
 }
 
-// Get the next kart body
-const getNextBody = currBody => {
-    let index = bodies.indexOf(currBody);
-    if(index ===  bodies.length - 1) return bodies[0];
-    return bodies[index + 1];
+// Get the next kart tires
+const getNextTires = currTires => {
+    let index = tires.indexOf(currTires);
+    if(index ===  tires.length - 1) return tires[0];
+    return tires[index + 1];
 }
 
-// Get the previous kart body
-const getPrevBody = currBody => {
-  let index = bodies.indexOf(currBody);
-  if(index ===  0) return bodies[bodies.length - 1];
-  return bodies[index - 1];
+// Get the previous kart tires
+const getPrevTires = currTires => {
+  let index = tires.indexOf(currTires);
+  if(index ===  0) return tires[tires.length - 1];
+  return tires[index - 1];
 }
 
-// Update kart body image url
-const updateBodyImage = currBodyUrl => {
-  document.getElementById('body-image').style.backgroundImage = `url(${currBodyUrl})`;
+// Update kart tires image url
+const updateTiresImage = currTiresUrl => {
+  document.getElementById('tires-image').style.backgroundImage = `url(${currTiresUrl})`;
 }
-*/
 
 // ========== Gliders ==========//
 
-// Displays next kart body
-/*
-const changeBodyRight = () => {
-  let currBody = {};
-  let newBody = {};
+// Displays next kart glider
+const changeGliderRight = () => {
+  let currGlider = {};
+  let newGlider = {};
 
-  currBody = getCurrentBody();
-  newBody = getNextBody(currBody);
-  currentTable.body = newBody.image;
+  currGlider = getCurrentGlider();
+  newGlider = getNextGlider(currGlider);
 
-  updateBodyImage(currentTable.body);
-  updateChart();
+  console.log(newGlider);
+
+  updateGliderImage(newGlider.image);
+  updateStats();
 }
 
-// Displays previous kart body
-const changeBodyLeft = () => {
-  let currBody = {};
-  let newBody = {};
+// Displays previous kart glider
+const changeGliderLeft = () => {
+  let currGlider = {};
+  let newGlider = {};
 
-  currBody = getCurrentBody();
-  newBody = getPrevBody(currBody);
-  currentTable.body = newBody.image;
+  currGlider = getCurrentGlider();
+  newGlider = getPrevGlider(currGlider);
 
-  updateBodyImage(currentTable.body);
-  updateChart();
+  console.log(newGlider);
+
+  updateGliderImage(newGlider.image);
+  updateStats();
 }
 
-// Get the current kart body
-const getCurrentBody = () => {
-  const bodyImage = document.getElementById('body-image');
-  let imgUrl = window.getComputedStyle(bodyImage).getPropertyValue('background-image');
+// Get the current kart glider
+const getCurrentGlider = () => {
+  const gliderImage = document.getElementById('glider-image');
+  let imgUrl = window.getComputedStyle(gliderImage).getPropertyValue('background-image');
   let currImage = imgUrl.split('/');
   let currIcon = currImage[currImage.length - 1].substring(0, currImage[currImage.length - 1].length - 2);
-  let currentBody = bodies.filter(body => body.image === `/media/bodies/${currIcon}`);
+  let currentGlider = gliders.filter(glider => glider.image === `/media/gliders/${currIcon}`);
 
-  return currentBody[0];
+  return currentGlider[0];
 }
 
-// Get the next kart body
-const getNextBody = currBody => {
-    let index = bodies.indexOf(currBody);
-    if(index ===  bodies.length - 1) return bodies[0];
-    return bodies[index + 1];
+// Get the next kart glider
+const getNextGlider = currGlider => {
+    let index = gliders.indexOf(currGlider);
+    if(index ===  gliders.length - 1) return gliders[0];
+    return gliders[index + 1];
 }
 
-// Get the previous kart body
-const getPrevBody = currBody => {
-  let index = bodies.indexOf(currBody);
-  if(index ===  0) return bodies[bodies.length - 1];
-  return bodies[index - 1];
+// Get the previous kart glider
+const getPrevGlider = currGlider => {
+  let index = gliders.indexOf(currGlider);
+  if(index ===  0) return gliders[gliders.length - 1];
+  return gliders[index - 1];
 }
 
-// Update kart body image url
-const updateBodyImage = currBodyUrl => {
-  document.getElementById('body-image').style.backgroundImage = `url(${currBodyUrl})`;
+// Update kart glider image url
+const updateGliderImage = currGliderUrl => {
+  document.getElementById('glider-image').style.backgroundImage = `url(${currGliderUrl})`;
 }
-*/
 
 // ========== Stats ==========//
 
 // Update stats
-const updateChart = () => {
+const updateStats = () => {
+  let driverStats = getCurrentChar();
+  let bodyStats = getCurrentBody();
+  let tiresStats = getCurrentTires();
+  let gliderStats = getCurrentGlider();
 
+
+/*
+  Final Stats:
+  1. groundSpeed
+  2. airSpeed
+  3. waterSpeed
+  4. antiGravitySpeed
+  5. acceleration
+  6. weight
+  7. groundHandling
+  8. airHandling
+  9. waterHandling
+  10. antiGravityHandling
+  11. onRoadTraction
+  12. offRoadTraction
+  13. miniTurbo 
+*/
+
+  let finalStats = [
+    calculateStats([driverStats.groundSpeed, bodyStats.groundSpeed, tiresStats.groundSpeed, gliderStats.groundSpeed]),
+    calculateStats([driverStats.airSpeed, bodyStats.airSpeed, tiresStats.airSpeed, gliderStats.airSpeed]),
+    calculateStats([driverStats.waterSpeed, bodyStats.waterSpeed, tiresStats.waterSpeed, gliderStats.waterSpeed]),
+    calculateStats([driverStats.antiGravitySpeed, bodyStats.antiGravitySpeed, tiresStats.antiGravitySpeed, gliderStats.antiGravitySpeed]),
+    calculateStats([driverStats.acceleration, bodyStats.acceleration, tiresStats.acceleration, gliderStats.acceleration]),
+    calculateStats([driverStats.weight, bodyStats.weight, tiresStats.weight, gliderStats.weight]),
+    calculateStats([driverStats.groundHandling, bodyStats.groundHandling, tiresStats.groundHandling, gliderStats.groundHandling]),
+    calculateStats([driverStats.airHandling, bodyStats.airHandling, tiresStats.airHandling, gliderStats.airHandling]),
+    calculateStats([driverStats.waterHandling, bodyStats.waterHandling, tiresStats.waterHandling, gliderStats.waterHandling]),
+    calculateStats([driverStats.antiGravityHandling, bodyStats.antiGravityHandling, tiresStats.antiGravityHandling, gliderStats.antiGravityHandling]),
+    calculateStats([driverStats.onRoadTraction, bodyStats.onRoadTraction, tiresStats.onRoadTraction, gliderStats.onRoadTraction]),
+    calculateStats([driverStats.offRoadTraction, bodyStats.offRoadTraction, tiresStats.offRoadTraction, gliderStats.offRoadTraction]),
+    calculateStats([driverStats.miniTurbo, bodyStats.miniTurbo, tiresStats.miniTurbo, gliderStats.miniTurbo])
+  ];
+
+  console.log(`Final Stats: ${finalStats}`);
+}
+
+const calculateStats = stats => {
+  return (stats.reduce((acc, curr) => acc + curr) + 3) / 4;
 }
 
 // ========== Event Listeners ==========//
