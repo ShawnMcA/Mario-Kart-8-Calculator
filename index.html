@@ -1,7 +1,7 @@
 <!--
   Images: https://www.mariowiki.com/Gallery:Mario_Kart_8#Character_kart_emblems
-  Info Data: Samy Vera, Tanguy Potier, Adrienc Vaucard  https://github.com/samyvera/mk8_node_api
   Stats: https://www.mariowiki.com/Mario_Kart_8_Deluxe_in-game_statistics
+  Chart: https://apexcharts.com/
 -->
 
 <!DOCTYPE html>
@@ -9,7 +9,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <title>Mario Kart 8 Calculator</title>
   <link rel="stylesheet" href="styles.css">
   <script src="https://kit.fontawesome.com/514c8a4747.js" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
@@ -23,31 +23,39 @@
   <section id="main">
     <h1 class="app-header">Mario Kart 8 Calculator</h1>
     <div class="app-row char-row">
+      <h1 class="row-header">Driver:</h1>
+      <p id="char-name">Mario</p>
       <div class="row-modal">
-        <i class="fas fa-chevron-left fa-3x modal-left" id="char-left"></i>
+        <i class="fas fa-chevron-left modal-left" id="char-left"></i>
         <div class="modal-image" id="char-image"></div>
-        <i class="fas fa-chevron-right fa-3x modal-right" id="char-right"></i>
+        <i class="fas fa-chevron-right modal-right" id="char-right"></i>
       </div>
     </div>
     <div class="app-row body-row">
+      <h1 class="row-header">Kart:</h1>
+      <p id="body-name">Standard Kart</p>
       <div class="row-modal">
-        <i class="fas fa-chevron-left fa-3x modal-left" id="body-left"></i>
+        <i class="fas fa-chevron-left modal-left" id="body-left"></i>
         <div class="modal-image" id="body-image"></div>
-        <i class="fas fa-chevron-right fa-3x modal-right" id="body-right"></i>
+        <i class="fas fa-chevron-right modal-right" id="body-right"></i>
       </div>
     </div>
     <div class="app-row tires-row">
+      <h1 class="row-header">Tires:</h1>
+      <p id="tires-name">Standard</p>
       <div class="row-modal">
-        <i class="fas fa-chevron-left fa-3x modal-left" id="tires-left"></i>
+        <i class="fas fa-chevron-left modal-left" id="tires-left"></i>
         <div class="modal-image" id="tires-image"></div>
-        <i class="fas fa-chevron-right fa-3x modal-right" id="tires-right"></i>
+        <i class="fas fa-chevron-right modal-right" id="tires-right"></i>
       </div>
     </div>
     <div class="app-row glider-row">
+      <h1 class="row-header">Glider:</h1>
+      <p id="glider-name">Super Glider</p>
       <div class="row-modal">
-        <i class="fas fa-chevron-left fa-3x modal-left" id="glider-left"></i>
+        <i class="fas fa-chevron-left modal-left" id="glider-left"></i>
         <div class="modal-image" id="glider-image"></div>
-        <i class="fas fa-chevron-right fa-3x modal-right" id="glider-right"></i>
+        <i class="fas fa-chevron-right modal-right" id="glider-right"></i>
       </div>
     </div>
     <div class="app-row-large stats-row" id="stat-chart"></div>

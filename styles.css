@@ -1,13 +1,19 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@600&display=swap');
+
 /* ----- Globals ----- */
 * {
   padding: 0;
   margin: 0;
 }
 
+html {
+  background: url('/media/bg/main-bg-light.jpg') no-repeat center center fixed;
+  background-size: cover;
+}
+
 body {
   box-sizing: border-box;
   padding: 20px;
-  height: 100vh;
   width: 100vw;
   display: flex;
   flex-direction: column;
@@ -21,8 +27,9 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
+  min-width: 375px;
   width: 80vw;
-  height: 70vh;
+  max-width: 800px;
   background-color: rgb(248, 234, 234);
   border: solid 2px #444;
   border-radius: 20px;
@@ -30,29 +37,38 @@ body {
 }
 
 .app-header {
-  height: 12%;
   width: 100%;
+  padding: 10px 0;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center; 
-  background-color: #f05562; 
+  background-color: #f05562;
+  color: #fff; 
   border-bottom: solid 2px #444;
-  font-size: 1.2em;
+  font-family: 'Orbitron', sans-serif; 
+  font-size: 1.6em;
 }
 
 .app-row {
-  height: 13%;
   width: 90%;
+  padding: 7px 0;
   display: flex;
-  flex-direction: column;
-  justify-content: center;
+  justify-content: space-evenly;
   align-items: center;
   border-bottom: solid 1px #999; 
 }
 
+.app-row p,
+.app-row h1 {
+  font-family: sans-serif; 
+  font-size: 1.3em;
+  width: 140px;
+  text-align: center;
+  padding: 0 5px;
+}
+
 .app-row-large {
-  height: 36%;
   width: 90%;
   display: flex;
   flex-direction: column;
@@ -77,13 +93,14 @@ body {
   background-color: #fff;
   background-position: center;
   margin: 0 20px;
-  border: solid 5px #444;
+  border: solid 3px #444;
 }
 
 
 .modal-left,
 .modal-right {
   cursor: pointer;
+  font-size: 2.5em;
 }
 
 #char-image {
@@ -108,4 +125,25 @@ body {
   background-image: url('/media/gliders/SuperGliderIcon.png');
   background-repeat: no-repeat;
   background-size: contain;
+}
+
+@media only screen and (max-width: 768px) {
+  .app-header {
+    font-size: 1.3em;
+  }
+
+  .modal-image {
+    height: 40px;
+    width: 63px;
+  }
+
+  .modal-left,
+  .modal-right {
+    font-size: 1.5em;
+  }
+
+  .app-row p,
+  .app-row h1 {
+    font-size: 1.1em;
+  }
 }

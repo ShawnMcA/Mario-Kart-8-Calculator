@@ -1,3 +1,6 @@
+
+// ========== Kart Gliders ==========//
+
 export const gliders = [  
   {  
     "name":"Super Glider",
