@@ -1,3 +1,6 @@
+
+// ========== Kart Tires ==========//
+
 export const tires = [  
   {  
     "name":"Standard",

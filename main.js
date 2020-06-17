@@ -23,6 +23,7 @@ const changeCharRight = () => {
   console.log(newChar);
 
   updateCharImage(newChar.image);
+  updateCharText(newChar.name);
   updateStats();
 }
 
@@ -37,6 +38,7 @@ const changeCharLeft = () => {
   console.log(newChar);
 
   updateCharImage(newChar.image);
+  updateCharText(newChar.name);
   updateStats();
 }
 
@@ -70,6 +72,13 @@ const updateCharImage = currCharUrl => {
   document.getElementById('char-image').style.backgroundImage = `url(${currCharUrl})`;
 }
 
+// Updates kart driver text
+const updateCharText = currChar => {
+  const charText = document.getElementById('char-name');
+
+  charText.innerHTML = currChar; 
+}
+
 // ========== Kart Bodies ==========// 
 
 // Displays next kart body
@@ -83,6 +92,7 @@ const changeBodyRight = () => {
   console.log(newBody);
 
   updateBodyImage(newBody.image);
+  updateBodyText(newBody.name);
   updateStats();
 }
 
@@ -97,6 +107,7 @@ const changeBodyLeft = () => {
   console.log(newBody);
 
   updateBodyImage(newBody.image);
+  updateBodyText(newBody.name);
   updateStats();
 }
 
@@ -129,6 +140,13 @@ const getPrevBody = currBody => {
 const updateBodyImage = currBodyUrl => {
   document.getElementById('body-image').style.backgroundImage = `url(${currBodyUrl})`;
 }
+
+// Updates kart body text
+const updateBodyText = currBody => {
+  const bodyText = document.getElementById('body-name');
+
+  bodyText.innerHTML = currBody; 
+}
  
 
 // ========== Kart Tires ==========// 
@@ -144,6 +162,7 @@ const changeTiresRight = () => {
   console.log(newTires);
 
   updateTiresImage(newTires.image);
+  updateTiresText(newTires.name);
   updateStats();
 }
 
@@ -158,6 +177,7 @@ const changeTiresLeft = () => {
   console.log(newTires);
 
   updateTiresImage(newTires.image);
+  updateTiresText(newTires.name);
   updateStats();
 }
 
@@ -191,6 +211,13 @@ const updateTiresImage = currTiresUrl => {
   document.getElementById('tires-image').style.backgroundImage = `url(${currTiresUrl})`;
 }
 
+// Updates kart tires text
+const updateTiresText = currTires => {
+  const tiresText = document.getElementById('tires-name');
+
+  tiresText.innerHTML = currTires; 
+}
+
 // ========== Gliders ==========//
 
 // Displays next kart glider
@@ -204,6 +231,7 @@ const changeGliderRight = () => {
   console.log(newGlider);
 
   updateGliderImage(newGlider.image);
+  updateGliderText(newGlider.name);
   updateStats();
 }
 
@@ -218,6 +246,7 @@ const changeGliderLeft = () => {
   console.log(newGlider);
 
   updateGliderImage(newGlider.image);
+  updateGliderText(newGlider.name);
   updateStats();
 }
 
@@ -249,6 +278,13 @@ const getPrevGlider = currGlider => {
 // Update kart glider image url
 const updateGliderImage = currGliderUrl => {
   document.getElementById('glider-image').style.backgroundImage = `url(${currGliderUrl})`;
+}
+
+// Updates kart tires text
+const updateGliderText = currGlider => {
+  const gliderText = document.getElementById('glider-name');
+
+  gliderText.innerHTML = currGlider; 
 }
 
 // ========== Stats ==========//
@@ -299,6 +335,7 @@ export const updateStats = () => {
   chart.updateSeries([{ data: finalStats }]);
 };
 
+// Calulates the average stats based on in-game calculation (tot + 3) / 4
 const calculateStats = stats => {
   return (stats.reduce((acc, curr) => acc + curr) + 3) / 4;
 }

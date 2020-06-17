@@ -1,3 +1,6 @@
+
+// ========== Kart Bodies ==========//
+
 export const bodies = [
   {
     "name": "Standard Kart",
