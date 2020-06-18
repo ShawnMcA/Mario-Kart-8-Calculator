@@ -22,6 +22,14 @@ body {
   font-family: sans-serif;
 }
 
+.blur {
+  filter: blur(3px);
+}
+
+.hidden {
+  display: none;
+}
+
 /* ----- Main App ----- */
 #main {
   display: flex;
@@ -34,6 +42,7 @@ body {
   border: solid 2px #444;
   border-radius: 20px;
   overflow: hidden;
+  
 }
 
 .app-header {
@@ -127,6 +136,42 @@ body {
   background-size: contain;
 }
 
+/* ---------- Overlay ---------- */
+#overlay {
+  min-width: 300px;
+  width: 45vw;
+  max-width: 800px;
+  height: 70vh;
+  background-color: rgba(214, 194, 194, 0.80);
+  border: solid 1px #444;
+  border-radius: 7px;
+  overflow: hidden;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -57%);
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+#overlay-menu {
+  width: calc(100% - 45px);
+  height: calc(100% - 45px);
+  background-color: rgb(243, 243, 243, .8);
+  border: solid 1px #444;
+  overflow-y: scroll;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 10px;
+  display: grid;
+  grid-template-columns: auto auto;
+  justify-content: space-evenly;
+  row-gap: 15px;
+}
+
+
+/* ---------- Media Queries ---------- */
 @media only screen and (max-width: 768px) {
   .app-header {
     font-size: 1.3em;
@@ -145,5 +190,11 @@ body {
   .app-row p,
   .app-row h1 {
     font-size: 1.1em;
+  }
+}
+
+@media only screen and (min-width: 1350px) {
+  #overlay-menu {
+    grid-template-columns: auto auto auto;
   }
 }

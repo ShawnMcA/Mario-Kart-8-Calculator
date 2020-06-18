@@ -9,6 +9,75 @@ import { chart } from '/stats.js';
 
 export let finalStats = [];
 
+// Shows selection overlay
+const showOverlay = () => {
+  const overlay = document.getElementById('main-overlay');
+  const mainApp = document.getElementById('main');
+
+  window.addEventListener('mousedown', removeOverlay);
+
+  mainApp.classList.toggle('blur');
+  overlay.classList.toggle('hidden');
+}
+
+// Removes selection overlay
+const removeOverlay = e => {
+  const overlay = document.getElementById('main-overlay');
+  const mainApp = document.getElementById('main');
+
+  if(overlay.classList[0] !== 'hidden' && e.target.id !== 'overlay-menu' && e.target.id !== 'overlay') {
+    updateCalculator(e);
+    overlay.classList.toggle('hidden');
+    mainApp.classList.toggle('blur');
+    document.getElementById('overlay-menu').innerHTML = '';
+    window.removeEventListener('mousedown', removeOverlay);
+  }
+}
+
+// Updates the calculator information
+const updateCalculator = e => {
+
+  // Check through drivers
+  drivers.forEach(driver => {
+    if(driver.name === e.target.id){
+      updateCharImage(driver.image);
+      updateCharText(driver.name);
+      updateStats();
+      return;
+    }
+  });
+
+  // Check through bodies
+  bodies.forEach(body => {
+    if(body.name === e.target.id){
+      updateBodyImage(body.image);
+      updateBodyText(body.name);
+      updateStats();
+      return;
+    }
+  });
+
+  // Check through tires
+  tires.forEach(tire => {
+    if(tire.name === e.target.id){
+      updateTiresImage(tire.image);
+      updateTiresText(tire.name);
+      updateStats();
+      return;
+    }
+  });
+
+  // Check through gliders
+  gliders.forEach(glider => {
+    if(glider.name === e.target.id){
+      updateGliderImage(glider.image);
+      updateGliderText(glider.name);
+      updateStats();
+      return;
+    }
+  });
+}
+
 
 // ========== Drivers ==========// 
 
@@ -79,6 +148,21 @@ const updateCharText = currChar => {
   charText.innerHTML = currChar; 
 }
 
+// Fills the overlay grid with drivers
+const fillCharGrid = () => {
+  const overlay = document.getElementById('overlay-menu');
+
+  drivers.forEach(driver => {
+    const driverDiv = document.createElement('div');
+    driverDiv.className = 'modal-image';
+    driverDiv.id = driver.name;
+    let styles = `background-image: url(${driver.image});background-repeat: no-repeat; background-size: contain;`;
+    console.log(driver.image);
+    driverDiv.setAttribute('style', styles);
+    overlay.appendChild(driverDiv);
+  })
+}
+
 // ========== Kart Bodies ==========// 
 
 // Displays next kart body
@@ -146,6 +230,21 @@ const updateBodyText = currBody => {
   const bodyText = document.getElementById('body-name');
 
   bodyText.innerHTML = currBody; 
+}
+
+// Fills the overlay grid with kart bodies
+const fillBodyGrid = () => {
+  const overlay = document.getElementById('overlay-menu');
+
+  bodies.forEach(body => {
+    const bodyDiv = document.createElement('div');
+    bodyDiv.className = 'modal-image';
+    bodyDiv.id = body.name;
+    let styles = `background-image: url(${body.image});background-repeat: no-repeat; background-size: contain;`;
+    console.log(body.image);
+    bodyDiv.setAttribute('style', styles);
+    overlay.appendChild(bodyDiv);
+  })
 }
  
 
@@ -218,6 +317,21 @@ const updateTiresText = currTires => {
   tiresText.innerHTML = currTires; 
 }
 
+// Fills the overlay grid with kart tires
+const fillTiresGrid = () => {
+  const overlay = document.getElementById('overlay-menu');
+
+  tires.forEach(tire => {
+    const tireDiv = document.createElement('div');
+    tireDiv.className = 'modal-image';
+    tireDiv.id = tire.name;
+    let styles = `background-image: url(${tire.image});background-repeat: no-repeat; background-size: contain;`;
+    console.log(tire.image);
+    tireDiv.setAttribute('style', styles);
+    overlay.appendChild(tireDiv);
+  })
+}
+
 // ========== Gliders ==========//
 
 // Displays next kart glider
@@ -280,11 +394,26 @@ const updateGliderImage = currGliderUrl => {
   document.getElementById('glider-image').style.backgroundImage = `url(${currGliderUrl})`;
 }
 
-// Updates kart tires text
+// Updates kart glider text
 const updateGliderText = currGlider => {
   const gliderText = document.getElementById('glider-name');
 
   gliderText.innerHTML = currGlider; 
+}
+
+// Fills the overlay grid with gliders
+const fillGliderGrid = () => {
+  const overlay = document.getElementById('overlay-menu');
+
+  gliders.forEach(glider => {
+    const gliderDiv = document.createElement('div');
+    gliderDiv.className = 'modal-image';
+    gliderDiv.id = glider.name;
+    let styles = `background-image: url(${glider.image});background-repeat: no-repeat; background-size: contain;`;
+    console.log(glider.image);
+    gliderDiv.setAttribute('style', styles);
+    overlay.appendChild(gliderDiv);
+  })
 }
 
 // ========== Stats ==========//
@@ -343,18 +472,39 @@ const calculateStats = stats => {
 
 
 // ========== Event Listeners ==========//
+// Driver event listeners
 document.getElementById('char-right').addEventListener('click', changeCharRight);
 document.getElementById('char-left').addEventListener('click', changeCharLeft);
+document.getElementById('char-image').addEventListener('click', () => {
+  showOverlay();
+  fillCharGrid();
+});
 
+// Body event listeners
 document.getElementById('body-right').addEventListener('click', changeBodyRight);
 document.getElementById('body-left').addEventListener('click', changeBodyLeft);
+document.getElementById('body-image').addEventListener('click', () => {
+  showOverlay();
+  fillBodyGrid();
+});
 
+// Tires event listeners
 document.getElementById('tires-right').addEventListener('click', changeTiresRight);
 document.getElementById('tires-left').addEventListener('click', changeTiresLeft);
+document.getElementById('tires-image').addEventListener('click', () => {
+  showOverlay();
+  fillTiresGrid();
+});
 
+// Glider event listeners
 document.getElementById('glider-right').addEventListener('click', changeGliderRight);
 document.getElementById('glider-left').addEventListener('click', changeGliderLeft);
+document.getElementById('glider-image').addEventListener('click', () => {
+  showOverlay();
+  fillGliderGrid();
+});
 
+// Main event listeners
 window.onload = function() {
   updateStats();
 }

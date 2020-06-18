@@ -21,7 +21,7 @@ const options = {
   },
 
   // Data labels
-  dataLabels: {
+  dataLabels: {  
     enabled: false
   },
 
@@ -43,6 +43,11 @@ const options = {
 
   // X axis chart categories
   xaxis: {
+    labels: {
+      style: {
+        colors: ['#000', '#000', '#000', '#000', '#000', '#000', '#000', '#000', '#000', '#000', '#000', '#000', '#000']
+      }
+    },
     categories: ['Ground Speed', 'Air Speed', 'Water Speed', 'Anti-Gravity Speed', 'Acceleration', 'Weight', 'Ground Handling', 'Air Handling', 'Water Handling', 'Anti-Gravity Handling', 'On-Road Traction', 'Off-Road Traction', 'Mini Turbo'
     ],
   },
