@@ -1,3 +1,7 @@
+// =========================================
+// Authors: Shawn McAllister, Tony Stanton
+// =========================================
+
 import { drivers } from './data/drivers.js';
 import { bodies } from './data/bodies.js';
 import { gliders } from './data/gliders.js';

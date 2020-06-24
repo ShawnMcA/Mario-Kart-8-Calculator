@@ -1,6 +1,8 @@
+// =========================================
+// Authors: Shawn McAllister, Tony Stanton
+// =========================================
 
 // ========== Statistics Graph ========== //
-
 // Graph options 
 const options = {
   // Main dataset 
