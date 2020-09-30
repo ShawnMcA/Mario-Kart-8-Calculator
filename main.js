@@ -18,6 +18,7 @@ const showOverlay = () => {
   const overlay = document.getElementById('main-overlay');
   const mainApp = document.getElementById('main');
 
+  window.addEventListener('touchend', removeOverlay);
   window.addEventListener('mousedown', removeOverlay);
 
   mainApp.classList.toggle('blur');
@@ -34,6 +35,7 @@ const removeOverlay = e => {
     overlay.classList.toggle('hidden');
     mainApp.classList.toggle('blur');
     document.getElementById('overlay-menu').innerHTML = '';
+    window.removeEventListener('touchend', removeOverlay);
     window.removeEventListener('mousedown', removeOverlay);
   }
 }
@@ -93,8 +95,6 @@ const changeCharRight = () => {
   currChar = getCurrentChar();
   newChar = getNextChar(currChar);
 
-  console.log(newChar);
-
   updateCharImage(newChar.image);
   updateCharText(newChar.name);
   updateStats();
@@ -107,8 +107,6 @@ const changeCharLeft = () => {
 
   currChar = getCurrentChar();
   newChar = getPrevChar(currChar);
-
-  console.log(newChar);
 
   updateCharImage(newChar.image);
   updateCharText(newChar.name);
@@ -177,8 +175,6 @@ const changeBodyRight = () => {
   currBody = getCurrentBody();
   newBody = getNextBody(currBody);
 
-  console.log(newBody);
-
   updateBodyImage(newBody.image);
   updateBodyText(newBody.name);
   updateStats();
@@ -191,8 +187,6 @@ const changeBodyLeft = () => {
 
   currBody = getCurrentBody();
   newBody = getPrevBody(currBody);
-
-  console.log(newBody);
 
   updateBodyImage(newBody.image);
   updateBodyText(newBody.name);
@@ -261,8 +255,6 @@ const changeTiresRight = () => {
 
   currTires = getCurrentTires();
   newTires = getNextTires(currTires);
-
-  console.log(newTires);
 
   updateTiresImage(newTires.image);
   updateTiresText(newTires.name);
@@ -346,8 +338,6 @@ const changeGliderRight = () => {
   currGlider = getCurrentGlider();
   newGlider = getNextGlider(currGlider);
 
-  console.log(newGlider);
-
   updateGliderImage(newGlider.image);
   updateGliderText(newGlider.name);
   updateStats();
@@ -360,8 +350,6 @@ const changeGliderLeft = () => {
 
   currGlider = getCurrentGlider();
   newGlider = getPrevGlider(currGlider);
-
-  console.log(newGlider);
 
   updateGliderImage(newGlider.image);
   updateGliderText(newGlider.name);
